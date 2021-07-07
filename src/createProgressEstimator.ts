@@ -1,13 +1,13 @@
-import fs from 'fs-extra';
+import fs from "fs-extra";
 
-import { paths } from './constants';
+import { paths } from "./constants";
 
-const progressEstimator = require('progress-estimator');
+const progressEstimator = require("progress-estimator");
 
 export async function createProgressEstimator() {
-  await fs.ensureDir(paths.progressEstimatorCache);
-  return progressEstimator({
-    // All configuration keys are optional, but it's recommended to specify a storage location.
-    storagePath: paths.progressEstimatorCache,
-  });
+	await fs.ensureDir(paths.progressEstimatorCache);
+	return progressEstimator({
+		// All configuration keys are optional, but it's recommended to specify a storage location.
+		storagePath: paths.progressEstimatorCache,
+	});
 }

@@ -1,6 +1,6 @@
-import * as fs from 'fs-extra';
+import * as fs from "fs-extra";
 
-import { paths } from './constants';
+import { paths } from "./constants";
 
 /*
   This was originally needed because the default
@@ -11,24 +11,24 @@ import { paths } from './constants';
   that in for some time too.
 */
 export async function moveTypes() {
-  const appDistSrc = paths.appDist + '/src';
+	const appDistSrc = paths.appDist + "/src";
 
-  const pathExists = await fs.pathExists(appDistSrc);
-  if (!pathExists) return;
+	const pathExists = await fs.pathExists(appDistSrc);
+	if (!pathExists) return;
 
-  // see note above about deprecation window
-  console.warn(
-    '[tsdx]: Your rootDir is currently set to "./". Please change your ' +
-      'rootDir to "./src".\n' +
-      'TSDX has deprecated setting tsconfig.compilerOptions.rootDir to ' +
-      '"./" as it caused buggy output for declarationMaps and more.\n' +
-      'You may also need to change your include to remove "test", which also ' +
-      'caused declarations to be unnecessarily created for test files.'
-  );
+	// see note above about deprecation window
+	console.warn(
+		'[tsdx]: Your rootDir is currently set to "./". Please change your ' +
+			'rootDir to "./src".\n' +
+			"TSDX has deprecated setting tsconfig.compilerOptions.rootDir to " +
+			'"./" as it caused buggy output for declarationMaps and more.\n' +
+			'You may also need to change your include to remove "test", which also ' +
+			"caused declarations to be unnecessarily created for test files."
+	);
 
-  // Move the type declarations to the base of the ./dist folder
-  await fs.copy(appDistSrc, paths.appDist, {
-    overwrite: true,
-  });
-  await fs.remove(appDistSrc);
+	// Move the type declarations to the base of the ./dist folder
+	await fs.copy(appDistSrc, paths.appDist, {
+		overwrite: true,
+	});
+	await fs.remove(appDistSrc);
 }

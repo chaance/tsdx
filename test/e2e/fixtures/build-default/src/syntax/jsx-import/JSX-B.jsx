@@ -3,5 +3,5 @@
 // SEE https://github.com/jaredpalmer/tsdx/issues/523
 
 export default function JSXComponent() {
-  return 'JSXC';
+	return "JSXC";
 }

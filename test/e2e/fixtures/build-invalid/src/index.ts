@@ -1,1 +1,1 @@
-export const inconsistentType: number = '123';
+export const inconsistentType: number = "123";

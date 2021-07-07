@@ -1,7 +1,7 @@
 {
-  "scripts": {
-    "build": "tsdx build"
-  },
-  "name": "build-default",
-  "license": "MIT"
+	"scripts": {
+		"build": "tsdx build"
+	},
+	"name": "build-default",
+	"license": "MIT"
 }
