@@ -2,7 +2,7 @@ import React from 'react';
 import { Logo } from 'components/logo';
 
 export default {
-  github: 'https://github.com/formium/tsdx',
+  github: 'https://github.com/chaance/tsdx',
   titleSuffix: ' – TSDX',
   logo: (
     <>
@@ -45,7 +45,7 @@ export default {
         content="Build production ready TypeScript packages. The world's leading companies use TSDX to build and test TypeScript packages"
       />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@jaredpalmer" />
+      <meta name="twitter:site" content="@chancethedev" />
       <meta name="twitter:image" content="https://tsdx.io/og_image.jpg" />
       <meta
         name="og:title"
@@ -66,18 +66,18 @@ export default {
     <>
       <div className="mt-24 flex justify-between flex-col-reverse md:flex-row items-center md:items-end">
         <a
-          href="https://jaredpalmer.com/?utm_source=tsdx"
+          href="https://chance.dev/?utm_source=tsdx"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center no-underline text-current font-semibold"
         >
-          <span className="mr-1">A Jared Palmer Project</span>
+          <span className="mr-1">A Chance the Dev Project</span>
         </a>
         <div className="mt-6" />
         <a
           className="text-sm"
           href={
-            'https://github.com/formium/tsdx/tree/master/website/pages' +
+            'https://github.com/chaance/tsdx/tree/main/website/pages' +
             filepath
           }
           target="_blank"

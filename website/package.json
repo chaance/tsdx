@@ -8,7 +8,7 @@
     "start": "next",
     "build": "next build"
   },
-  "author": "Jared Palmer",
+  "author": "Chance Strickland",
   "license": "MIT",
   "dependencies": {
     "@reach/skip-nav": "^0.10.5",

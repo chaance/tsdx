@@ -11,7 +11,7 @@ export const help = function() {
   return `
     Only ${chalk.green('<project-directory>')} is required.
     If you have any problems, do not hesitate to file an issue:
-    ${chalk.cyan('https://github.com/formium/tsdx/issues/new')}
+    ${chalk.cyan('https://github.com/chaance/tsdx/issues/new')}
   `;
 };
 
@@ -72,21 +72,21 @@ export const start = async function(projectName: string) {
 
   return `
   ${chalk.green('Awesome!')} You're now ready to start coding.
-  
+
   I already ran ${Output.cmd(commands.install)} for you, so your next steps are:
     ${Output.cmd(`cd ${projectName}`)}
-  
+
   To start developing (rebuilds on changes):
     ${Output.cmd(commands.start)}
-  
+
   To build for production:
     ${Output.cmd(commands.build)}
 
   To test your library with Jest:
     ${Output.cmd(commands.test)}
-    
+
   Questions? Feedback? Please let me know!
-  ${chalk.green('https://github.com/formium/tsdx/issues')}
+  ${chalk.green('https://github.com/chaance/tsdx/issues')}
 `;
 };
 

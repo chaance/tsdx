@@ -7,3 +7,4 @@ tester-react
 package-lock.json
 # Local Netlify folder
 .netlify
+.editorconfig
