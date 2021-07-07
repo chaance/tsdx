@@ -1,4 +1,8 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["babel-plugin-macros", "./.nextra/babel-plugin-nextjs-mdx-patch"]
+	"presets": ["next/babel"],
+	"plugins": [
+		"babel-plugin-macros",
+		// consider removing this
+		"./.nextra/babel-plugin-nextjs-mdx-patch"
+	]
 }

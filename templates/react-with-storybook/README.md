@@ -114,7 +114,7 @@ Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx
 // ./types/index.d.ts
 declare var __DEV__: boolean;
 
-// inside your code...
+// inside your code…
 if (__DEV__) {
   console.log('foo');
 }

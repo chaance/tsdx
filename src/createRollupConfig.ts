@@ -83,7 +83,7 @@ export async function createRollupConfig(
 			// const result = foo.bar;
 			// const illegalAccess = foo.quux.tooDeep;
 			//
-			// Punchline....Don't use getters and setters
+			// Punchline…Don't use getters and setters
 			propertyReadSideEffects: false,
 		},
 		// Establish Rollup output
