@@ -1,4 +1,8 @@
+import ForkNotice from "components/fork-notice";
+
 # Optimizations
+
+<ForkNotice />
 
 Aside from just bundling your module into different formats, TSDX comes with some optimizations for your convenience. They yield objectively better code and smaller bundle sizes.
 
@@ -17,10 +21,10 @@ Imagine our source code is just this:
 ```tsx
 // ./src/index.ts
 export const sum = (a: number, b: number) => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('Helpful dev-only error message');
-  }
-  return a + b;
+	if (process.env.NODE_ENV !== "production") {
+		console.log("Helpful dev-only error message");
+	}
+	return a + b;
 };
 ```
 
@@ -29,27 +33,27 @@ export const sum = (a: number, b: number) => {
 ```js
 // Entry File
 // ./dist/index.js
-'use strict';
+"use strict";
 
 // This determines which build to use based on the `NODE_ENV` of your end user.
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./mylib.cjs.production.js');
+if (process.env.NODE_ENV === "production") {
+	module.exports = require("./mylib.cjs.production.js");
 } else {
-  module.exports = require('./mylib.cjs.development.js');
+	module.exports = require("./mylib.cjs.development.js");
 }
 ```
 
 ```js
 // CommonJS Development Build
 // ./dist/mylib.cjs.development.js
-'use strict';
+"use strict";
 
 const sum = (a, b) => {
-  {
-    console.log('Helpful dev-only error message');
-  }
+	{
+		console.log("Helpful dev-only error message");
+	}
 
-  return a + b;
+	return a + b;
 };
 
 exports.sum = sum;
@@ -59,7 +63,7 @@ exports.sum = sum;
 ```js
 // CommonJS Production Build
 // ./dist/mylib.cjs.production.js
-'use strict';
+"use strict";
 exports.sum = (s, t) => s + t;
 //# sourceMappingURL=test-react-tsdx.cjs.production.js.map
 ```
@@ -82,15 +86,15 @@ Replaces
 
 ```ts
 if (__DEV__) {
-  console.log('foo');
+	console.log("foo");
 }
 ```
 
 with
 
 ```js
-if (process.env.NODE_ENV !== 'production') {
-  console.log('foo');
+if (process.env.NODE_ENV !== "production") {
+	console.log("foo");
 }
 ```
 
@@ -108,18 +112,18 @@ declare var __DEV__: boolean;
 Replaces
 
 ```js
-invariant(condition, 'error message here');
+invariant(condition, "error message here");
 ```
 
 with
 
 ```js
 if (!condition) {
-  if ('production' !== process.env.NODE_ENV) {
-    invariant(false, 'error message here');
-  } else {
-    invariant(false);
-  }
+	if ("production" !== process.env.NODE_ENV) {
+		invariant(false, "error message here");
+	} else {
+		invariant(false);
+	}
 }
 ```
 
@@ -132,14 +136,14 @@ To extract and minify `invariant` error codes in production into a static `codes
 Replaces
 
 ```js
-warning(condition, 'dev warning here');
+warning(condition, "dev warning here");
 ```
 
 with
 
 ```js
-if ('production' !== process.env.NODE_ENV) {
-  warning(condition, 'dev warning here');
+if ("production" !== process.env.NODE_ENV) {
+	warning(condition, "dev warning here");
 }
 ```
 
@@ -165,10 +169,10 @@ Import your lodash method however you want, TSDX will optimize it like so.
 
 ```tsx
 // ./src/index.ts
-import kebabCase from 'lodash/kebabCase';
+import kebabCase from "lodash/kebabCase";
 
 export const KebabLogger = (msg: string) => {
-  console.log(kebabCase(msg));
+	console.log(kebabCase(msg));
 };
 ```
 

@@ -1,7 +1,9 @@
 .features {
   display: flex;
   flex-wrap: wrap;
-  margin: 2.5rem -0.5rem 2rem;
+	margin-top: 2.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
 .feature {

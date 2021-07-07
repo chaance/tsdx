@@ -1,43 +1,42 @@
 ![tsdx](https://user-images.githubusercontent.com/4060187/56918426-fc747600-6a8b-11e9-806d-2da0b49e89e4.png)
 
-[![Blazing Fast](https://badgen.now.sh/badge/speed/blazing%20%F0%9F%94%A5/green)](https://npm.im/tsdx) [![Blazing Fast](https://badgen.now.sh/badge/speed/blazing%20%F0%9F%94%A5/green)](https://npm.im/tsdx) [![Blazing Fast](https://badgen.now.sh/badge/speed/blazing%20%F0%9F%94%A5/green)](https://npm.im/tsdx) [![Discord](https://img.shields.io/discord/769256827007139912.svg?style=flat-square)](https://discord.gg/pJSg287)
+> This fork is maintained by [Chance Strickland](https://twitter.com/chancethedev). It is based on the original package by [Jared Palmer](https://twitter.com/jaredpalmer).
 
-
-Despite all the recent hype, setting up a new TypeScript (x React) library can be tough. Between [Rollup](https://github.com/rollup/rollup), [Jest](https://github.com/facebook/jest), `tsconfig`, [Yarn resolutions](https://yarnpkg.com/en/docs/selective-version-resolutions), ESLint, and getting VSCode to play nicely....there is just a whole lot of stuff to do (and things to screw up). TSDX is a zero-config CLI that helps you develop, test, and publish modern TypeScript packages with ease--so you can focus on your awesome new library and not waste another afternoon on the configuration.
+Despite all the recent hype, setting up a new TypeScript (x React) library can be tough. Between [Rollup](https://github.com/rollup/rollup), [Jest](https://github.com/facebook/jest), `tsconfig`, ESLint, and getting VSCode to play nicely…there is just a whole lot of stuff to do (and things to screw up). TSDX is a zero-config CLI that helps you develop, test, and publish modern TypeScript packages with ease--so you can focus on your awesome new library and not waste another afternoon on the configuration.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Features](#features)
 - [Quick Start](#quick-start)
-  - [`npm start` or `yarn start`](#npm-start-or-yarn-start)
-  - [`npm run build` or `yarn build`](#npm-run-build-or-yarn-build)
-  - [`npm test` or `yarn test`](#npm-test-or-yarn-test)
-  - [`npm run lint` or `yarn lint`](#npm-run-lint-or-yarn-lint)
-  - [`prepare` script](#prepare-script)
+	- [`npm start` or `yarn start`](#npm-start-or-yarn-start)
+	- [`npm run build` or `yarn build`](#npm-run-build-or-yarn-build)
+	- [`npm test` or `yarn test`](#npm-test-or-yarn-test)
+	- [`npm run lint` or `yarn lint`](#npm-run-lint-or-yarn-lint)
+	- [`prepare` script](#prepare-script)
 - [Optimizations](#optimizations)
-  - [Development-only Expressions + Treeshaking](#development-only-expressions--treeshaking)
-    - [Rollup Treeshaking](#rollup-treeshaking)
-    - [Advanced `babel-plugin-dev-expressions`](#advanced-babel-plugin-dev-expressions)
-      - [`__DEV__`](#__dev__)
-      - [`invariant`](#invariant)
-      - [`warning`](#warning)
-  - [Using lodash](#using-lodash)
-  - [Error extraction](#error-extraction)
+	- [Development-only Expressions + Treeshaking](#development-only-expressions--treeshaking)
+		- [Rollup Treeshaking](#rollup-treeshaking)
+		- [Advanced `babel-plugin-dev-expressions`](#advanced-babel-plugin-dev-expressions)
+			- [`__DEV__`](#__dev__)
+			- [`invariant`](#invariant)
+			- [`warning`](#warning)
+	- [Using lodash](#using-lodash)
+	- [Error extraction](#error-extraction)
 - [Customization](#customization)
-  - [Rollup](#rollup)
-    - [Example: Adding Postcss](#example-adding-postcss)
-  - [Babel](#babel)
-  - [Jest](#jest)
-  - [ESLint](#eslint)
-  - [`patch-package`](#patch-package)
+	- [Rollup](#rollup)
+		- [Example: Adding Postcss](#example-adding-postcss)
+	- [Babel](#babel)
+	- [Jest](#jest)
+	- [ESLint](#eslint)
+	- [`patch-package`](#patch-package)
 - [Inspiration](#inspiration)
-  - [Comparison with Microbundle](#comparison-with-microbundle)
+	- [Comparison with Microbundle](#comparison-with-microbundle)
 - [API Reference](#api-reference)
-  - [`tsdx watch`](#tsdx-watch)
-  - [`tsdx build`](#tsdx-build)
-  - [`tsdx test`](#tsdx-test)
-  - [`tsdx lint`](#tsdx-lint)
+	- [`tsdx watch`](#tsdx-watch)
+	- [`tsdx build`](#tsdx-build)
+	- [`tsdx test`](#tsdx-test)
+	- [`tsdx lint`](#tsdx-lint)
 - [Contributing](#contributing)
 - [Author](#author)
 - [License](#license)
@@ -64,7 +63,7 @@ TSDX comes with the "battery-pack included" and is part of a complete TypeScript
 ## Quick Start
 
 ```bash
-npx tsdx create mylib
+npx @chance/tsdx create mylib
 cd mylib
 yarn start
 ```
@@ -121,10 +120,10 @@ Imagine our source code is just this:
 ```tsx
 // ./src/index.ts
 export const sum = (a: number, b: number) => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('Helpful dev-only error message');
-  }
-  return a + b;
+	if (process.env.NODE_ENV !== "production") {
+		console.log("Helpful dev-only error message");
+	}
+	return a + b;
 };
 ```
 
@@ -133,27 +132,27 @@ export const sum = (a: number, b: number) => {
 ```js
 // Entry File
 // ./dist/index.js
-'use strict';
+"use strict";
 
 // This determines which build to use based on the `NODE_ENV` of your end user.
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./mylib.cjs.production.js');
+if (process.env.NODE_ENV === "production") {
+	module.exports = require("./mylib.cjs.production.js");
 } else {
-  module.exports = require('./mylib.cjs.development.js');
+	module.exports = require("./mylib.cjs.development.js");
 }
 ```
 
 ```js
 // CommonJS Development Build
 // ./dist/mylib.cjs.development.js
-'use strict';
+"use strict";
 
 const sum = (a, b) => {
-  {
-    console.log('Helpful dev-only error message');
-  }
+	{
+		console.log("Helpful dev-only error message");
+	}
 
-  return a + b;
+	return a + b;
 };
 
 exports.sum = sum;
@@ -163,7 +162,7 @@ exports.sum = sum;
 ```js
 // CommonJS Production Build
 // ./dist/mylib.cjs.production.js
-'use strict';
+"use strict";
 exports.sum = (s, t) => s + t;
 //# sourceMappingURL=test-react-tsdx.cjs.production.js.map
 ```
@@ -186,15 +185,15 @@ Replaces
 
 ```ts
 if (__DEV__) {
-  console.log('foo');
+	console.log("foo");
 }
 ```
 
 with
 
 ```js
-if (process.env.NODE_ENV !== 'production') {
-  console.log('foo');
+if (process.env.NODE_ENV !== "production") {
+	console.log("foo");
 }
 ```
 
@@ -212,18 +211,18 @@ declare var __DEV__: boolean;
 Replaces
 
 ```js
-invariant(condition, 'error message here');
+invariant(condition, "error message here");
 ```
 
 with
 
 ```js
 if (!condition) {
-  if ('production' !== process.env.NODE_ENV) {
-    invariant(false, 'error message here');
-  } else {
-    invariant(false);
-  }
+	if ("production" !== process.env.NODE_ENV) {
+		invariant(false, "error message here");
+	} else {
+		invariant(false);
+	}
 }
 ```
 
@@ -236,14 +235,14 @@ To extract and minify `invariant` error codes in production into a static `codes
 Replaces
 
 ```js
-warning(condition, 'dev warning here');
+warning(condition, "dev warning here");
 ```
 
 with
 
 ```js
-if ('production' !== process.env.NODE_ENV) {
-  warning(condition, 'dev warning here');
+if ("production" !== process.env.NODE_ENV) {
+	warning(condition, "dev warning here");
 }
 ```
 
@@ -269,10 +268,10 @@ Import your lodash method however you want, TSDX will optimize it like so.
 
 ```tsx
 // ./src/index.ts
-import kebabCase from 'lodash/kebabCase';
+import kebabCase from "lodash/kebabCase";
 
 export const KebabLogger = (msg: string) => {
-  console.log(kebabCase(msg));
+	console.log(kebabCase(msg));
 };
 ```
 
@@ -312,10 +311,10 @@ TSDX uses Rollup under the hood. The defaults are solid for most packages (Formi
 ```js
 // Not transpiled with TypeScript or Babel, so use plain Es6/Node.js!
 module.exports = {
-  // This function will run for each entry/format/env combination
-  rollup(config, options) {
-    return config; // always return a config.
-  },
+	// This function will run for each entry/format/env combination
+	rollup(config, options) {
+		return config; // always return a config.
+	},
 };
 ```
 
@@ -323,53 +322,53 @@ The `options` object contains the following:
 
 ```tsx
 export interface TsdxOptions {
-  // path to file
-  input: string;
-  // Name of package
-  name: string;
-  // JS target
-  target: 'node' | 'browser';
-  // Module format
-  format: 'cjs' | 'umd' | 'esm' | 'system';
-  // Environment
-  env: 'development' | 'production';
-  // Path to tsconfig file
-  tsconfig?: string;
-  // Is error extraction running?
-  extractErrors?: boolean;
-  // Is minifying?
-  minify?: boolean;
-  // Is this the very first rollup config (and thus should one-off metadata be extracted)?
-  writeMeta?: boolean;
-  // Only transpile, do not type check (makes compilation faster)
-  transpileOnly?: boolean;
+	// path to file
+	input: string;
+	// Name of package
+	name: string;
+	// JS target
+	target: "node" | "browser";
+	// Module format
+	format: "cjs" | "umd" | "esm" | "system";
+	// Environment
+	env: "development" | "production";
+	// Path to tsconfig file
+	tsconfig?: string;
+	// Is error extraction running?
+	extractErrors?: boolean;
+	// Is minifying?
+	minify?: boolean;
+	// Is this the very first rollup config (and thus should one-off metadata be extracted)?
+	writeMeta?: boolean;
+	// Only transpile, do not type check (makes compilation faster)
+	transpileOnly?: boolean;
 }
 ```
 
 #### Example: Adding Postcss
 
 ```js
-const postcss = require('rollup-plugin-postcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+const postcss = require("rollup-plugin-postcss");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
 
 module.exports = {
-  rollup(config, options) {
-    config.plugins.push(
-      postcss({
-        plugins: [
-          autoprefixer(),
-          cssnano({
-            preset: 'default',
-          }),
-        ],
-        inject: false,
-        // only write out CSS for the first bundle (avoids pointless extra files):
-        extract: !!options.writeMeta,
-      })
-    );
-    return config;
-  },
+	rollup(config, options) {
+		config.plugins.push(
+			postcss({
+				plugins: [
+					autoprefixer(),
+					cssnano({
+						preset: "default",
+					}),
+				],
+				inject: false,
+				// only write out CSS for the first bundle (avoids pointless extra files):
+				extract: !!options.writeMeta,
+			})
+		);
+		return config;
+	},
 };
 ```
 
@@ -479,11 +478,11 @@ This runs Jest, forwarding all CLI flags to it. See [https://jestjs.io](https://
 
 ```json
 {
-  "scripts": {
-    "test": "tsdx test",
-    "test:watch": "tsdx test --watch",
-    "test:coverage": "tsdx test --coverage"
-  }
+	"scripts": {
+		"test": "tsdx test",
+		"test:watch": "tsdx test --watch",
+		"test:coverage": "tsdx test --coverage"
+	}
 }
 ```
 
@@ -519,7 +518,7 @@ Please see the [Contributing Guidelines](./CONTRIBUTING.md).
 
 ## Author
 
-- [Jared Palmer](https://twitter.com/jaredpalmer)
+- This fork is maintained by [Chance Strickland](https://twitter.com/chancethedev). It is based on the original package by [Jared Palmer](https://twitter.com/jaredpalmer).
 
 ## License
 
@@ -661,6 +660,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

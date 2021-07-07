@@ -54,13 +54,17 @@ code {
   @apply p-1 text-sm text-gray-800 bg-gray-500 bg-opacity-25 rounded;
 }
 pre {
-  @apply p-4 bg-gray-200 rounded-lg mt-6 mb-4 overflow-x-auto scrolling-touch;
+  @apply p-4 bg-gray-200 rounded-lg mt-6 mb-4 overflow-x-auto;
 }
 pre code {
   @apply p-0 text-black bg-transparent rounded-none;
 }
 a code {
   @apply text-current no-underline;
+}
+:is(h1,h2,h3,h4,h5,h6) code {
+	font-size: inherit;
+	line-height: inherit;
 }
 figure {
   @apply mb-8 relative;
@@ -129,7 +133,7 @@ table > tbody > tr > td > a:hover {
 }
 .sidebar a:focus-visible,
 .sidebar button:focus-visible {
-  @apply shadow-outline;
+  @apply ring;
 }
 .sidebar li.active > a {
   @apply font-semibold text-black bg-gray-200;
@@ -207,5 +211,5 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 [data-reach-skip-link]:focus {
-  @apply not-sr-only fixed ml-6 top-0 bg-white text-lg px-6 py-2 mt-2 outline-none shadow-outline z-50;
+  @apply not-sr-only fixed ml-6 top-0 bg-white text-lg px-6 py-2 mt-2 outline-none ring z-50;
 }

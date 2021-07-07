@@ -35,7 +35,7 @@ export default function () {
   return <div className="relative w-full md:w-64 mr-2">
     <input
       id="algolia-doc-search"
-      className="appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
+      className="appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring w-full"
       type="search"
       placeholder='Search ("/" to focus)'
       ref={input}
