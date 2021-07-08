@@ -27,6 +27,10 @@
   },
   "devDependencies": {
     "@mdx-js/loader": "^1.6.22",
+    "@types/lodash": "^4.14.171",
+    "@types/node": "^14.17.4",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
     "autoprefixer": "^10.2.6",
     "babel-plugin-macros": "^3.1.0",
     "postcss": "^8.3.5",
