@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import Markdown from "markdown-to-jsx";
+import ForkNotice from "components/publish-notice";
+import PublishNotice from "components/publish-notice";
 
 {/* TODO: Replace this */}
 export async function getStaticProps() {
@@ -12,4 +14,7 @@ export async function getStaticProps() {
 
 # Change Log
 
-Please visit the [release page](https://github.com/chaance/tsdx/releases) for all historical releases.
+<ForkNotice />
+<PublishNotice />
+
+{/* Please visit the [release page](https://github.com/chaance/tsdx/releases) for all historical releases. */}

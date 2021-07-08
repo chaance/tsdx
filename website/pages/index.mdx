@@ -1,5 +1,6 @@
 import Features from "components/features";
 import ForkNotice from "components/fork-notice";
+import PublishNotice from "components/publish-notice";
 
 {/* TODO: Replace this */}
 export async function getStaticProps() {
@@ -17,6 +18,8 @@ export async function getStaticProps() {
 </div>
 
 <ForkNotice />
+<PublishNotice />
+
 
 Despite all the recent hype, setting up a new TypeScript (x React)
 library can be tough. Between Rollup, Jest, `tsconfig`, and getting VSCode to play nicely…there is just a whole lot
@@ -26,7 +29,11 @@ of stuff to do (and things to screw up).
 modern TypeScript packages** with ease--so you can focus on your awesome
 new library and not waste another afternoon on the configuration.
 
-## Quick Start
+## Getting Started
+
+Because the package is not published, you will need to copy the source code into an executable directory in your project and run commands directly with Node. I'm not sure I'll get around to documenting this before release, so use at your own risk!
+
+{/* ## Quick Start
 
 With TSDX, you can quickly bootstrap a new TypeScript project in seconds, instead of hours. Open up Terminal and enter:
 
@@ -42,7 +49,7 @@ You'll be prompted to choose from one of three project templates:
 | `react`                | A React package with necessary development dependencies and `@types` installed. In addition, there is a [Parcel](https://parceljs.org/)-powered React playground you can use while you develop. |
 | `react-with-storybook` | Same as the basic React template, but with [React Storybook](https://storybook.js.org/) already setup as well.                                                                                  |
 
-After you select one, TSDX will create a folder with the project template in it and install all dependencies. Once that's done, you're ready-to-rock! TypeScript, Rollup, Jest, ESlint and all other plumbing is already setup with best practices. Just start editing `src/index.ts` (or `src/index.tsx` if you chose one of the React templates) and go!
+After you select one, TSDX will create a folder with the project template in it and install all dependencies. Once that's done, you're ready-to-rock! TypeScript, Rollup, Jest, ESlint and all other plumbing is already setup with best practices. Just start editing `src/index.ts` (or `src/index.tsx` if you chose one of the React templates) and go! */}
 
 ## Useful Commands
 
