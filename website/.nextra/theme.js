@@ -68,7 +68,8 @@ const THEME = {
 // Anchor links
 
 const HeaderLink = ({ tag: Tag, children, ...props }) => {
-	const slug = slugify(ReactDOM.renderToString(children) || "");
+	let childString = ReactDOM.renderToString(children);
+	let slug = slugify(stripHtml(childString || "").result);
 	return (
 		<Tag {...props}>
 			<span className="subheading-anchor" id={slug} />

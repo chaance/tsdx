@@ -1,4 +1,2 @@
 const withNextra = require('./.nextra/nextra')();
-module.exports = withNextra({
-	target: "serverless"
-});
+module.exports = withNextra();

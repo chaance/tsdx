@@ -11,6 +11,7 @@
   "author": "Chance Strickland",
   "license": "MIT",
   "dependencies": {
+    "@mdx-js/react": "2.0.0-next.9",
     "@reach/skip-nav": "0.15.2",
     "@sindresorhus/slugify": "^1.1.0",
     "clsx": "^1.1.1",
@@ -26,7 +27,8 @@
     "string-strip-html": "^8.3.0"
   },
   "devDependencies": {
-    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/loader": "2.0.0-next.9",
+    "@ngsctt/remark-smartypants": "0.2.0",
     "@types/lodash": "^4.14.171",
     "@types/node": "^14.17.4",
     "@types/react": "^17.0.14",
@@ -36,6 +38,7 @@
     "postcss": "^8.3.5",
     "postcss-preset-env": "^6.7.0",
     "preval.macro": "^5.0.0",
+    "remark-gfm": "^1.0.0",
     "tailwindcss": "^2.2.4",
     "title": "^3.4.3",
     "tslib": "^2.3.0",

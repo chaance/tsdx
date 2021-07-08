@@ -97,10 +97,19 @@ function File({ item, anchors }) {
 					</Link>
 					<ul>
 						{anchors.map((anchor) => {
+
 							let anchorString =
 								typeof anchor === "string"
 									? ReactDOM.renderToString(anchor)
+									: typeof anchor === "object" &&
+									  "props" in anchor &&
+									  anchor.props.children
+									? anchor.props.children
 									: "";
+
+									console.log({ anchor, anchorString });
+
+
 							const slug = slugify(stripHtml(anchorString || "").result);
 							return (
 								<li key={`a-${slug}`}>
@@ -205,11 +214,11 @@ const Layout = ({ filename, full, title: _title, ssg = {}, children }) => {
 	const { route, pathname } = router;
 
 	const filepath = route.slice(0, route.lastIndexOf("/") + 1);
-	const titles = React.Children.toArray(children).filter((child) =>
-		titleType.includes(child.props.mdxType)
-	);
+	const titles = React.Children.toArray(children).filter((child) => {
+		return titleType.includes(child.props?.mdxType);
+	});
 	const anchors = titles
-		.filter((child) => child.props.mdxType === "h2")
+		.filter((child) => child.props?.mdxType === "h2")
 		.map((child) => child.props.children);
 
 	useEffect(() => {
@@ -227,7 +236,7 @@ const Layout = ({ filename, full, title: _title, ssg = {}, children }) => {
 
 	const title =
 		flatDirectories[currentIndex]?.title ||
-		titles.find((child) => child.props.mdxType === "h1")?.props.children ||
+		titles.find((child) => child.props?.mdxType === "h1")?.props.children ||
 		"Untitled";
 
 	const props = {
@@ -294,13 +303,13 @@ const Layout = ({ filename, full, title: _title, ssg = {}, children }) => {
 					</MenuContext.Provider>
 					<SSGContext.Provider value={ssg}>
 						{full ? (
-							<content className="relative pt-16 w-full overflow-x-hidden">
+							<div className="relative pt-16 w-full overflow-x-hidden">
 								{children}
-							</content>
+							</div>
 						) : (
 							<>
 								<SkipNavContent />
-								<content className="relative pt-20 pb-16 px-6 md:px-8 w-full max-w-full overflow-x-hidden">
+								<div className="relative pt-20 pb-16 px-6 md:px-8 w-full max-w-full overflow-x-hidden">
 									<main className="max-w-screen-md">
 										<Theme>{children}</Theme>
 										<footer className="mt-24">
@@ -319,7 +328,7 @@ const Layout = ({ filename, full, title: _title, ssg = {}, children }) => {
 											{config.footer ? config.footer(props) : null}
 										</footer>
 									</main>{" "}
-								</content>
+								</div>
 							</>
 						)}
 					</SSGContext.Provider>
