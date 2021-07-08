@@ -20,17 +20,17 @@ module.exports = {
 		},
 		// https://tailwindcss.com/docs/upgrading-to-v2#configure-your-font-size-scale-explicitly
 		fontSize: {
-      xs: '0.75rem',
-      sm: '0.875rem',
-      base: '1rem',
-      lg: '1.125rem',
-      xl: '1.25rem',
-      '2xl': '1.5rem',
-      '3xl': '1.875rem',
-      '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '4rem',
-    },
+			xs: "0.75rem",
+			sm: "0.875rem",
+			base: "1rem",
+			lg: "1.125rem",
+			xl: "1.25rem",
+			"2xl": "1.5rem",
+			"3xl": "1.875rem",
+			"4xl": "2.25rem",
+			"5xl": "3rem",
+			"6xl": "4rem",
+		},
 		// https://tailwindcss.com/docs/upgrading-to-v2#configure-your-color-palette-explicitly
 		colors: {
 			transparent: "transparent",
@@ -150,5 +150,13 @@ module.exports = {
 				900: "#702459",
 			},
 		},
+	},
+	variants: {
+		ring: ["focus-visible"],
+		ringColor: ["focus-visible"],
+    ringOffsetColor: ["focus-visible"],
+    ringOffsetWidth: ["focus-visible"],
+    ringOpacity: ["focus-visible"],
+    ringWidth: ["focus-visible"],
 	},
 };

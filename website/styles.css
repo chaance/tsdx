@@ -131,9 +131,13 @@ table > tbody > tr > td > a:hover {
 .sidebar ul ul {
 	@apply ml-5;
 }
+:focus-visible {
+	outline: none;
+	@apply ring-2 ring-offset-transparent;
+}
 .sidebar a:focus-visible,
 .sidebar button:focus-visible {
-	@apply ring;
+	@apply ring ring-offset-0;
 }
 .sidebar li.active > a {
 	@apply font-semibold text-black bg-gray-200;
@@ -211,5 +215,5 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 [data-reach-skip-link]:focus {
-	@apply not-sr-only fixed ml-6 top-0 bg-white text-lg px-6 py-2 mt-2 outline-none ring z-50;
+	@apply not-sr-only fixed ml-6 top-0 bg-white text-lg px-6 py-2 mt-2 outline-none ring ring-offset-0 z-50;
 }

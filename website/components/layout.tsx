@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as React from "react";
-// import * as ReactDOM from "react-dom/server";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 import slugify from "@sindresorhus/slugify";
-// import "focus-visible";
 import cn from "clsx";
 import { SkipNavContent } from "@reach/skip-nav";
 import { MDXProvider } from "@mdx-js/react";
