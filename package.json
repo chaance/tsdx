@@ -23,6 +23,7 @@
 	},
 	"scripts": {
 		"preinstall": "npx npm-force-resolutions",
+		"postinstall": "npx patch-package",
 		"prepare": "husky install && tsc -p tsconfig.json",
 		"build": "tsc -p tsconfig.json",
 		"lint": "npm run build && npm run lint:post-build",
