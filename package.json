@@ -23,7 +23,7 @@
 	},
 	"scripts": {
 		"preinstall": "npx npm-force-resolutions",
-		"postinstall": "npx patch-package",
+		"// postinstall": "npx patch-package",
 		"prepare": "husky install && tsc -p tsconfig.json",
 		"build": "tsc -p tsconfig.json",
 		"lint": "npm run build && npm run lint:post-build",
@@ -73,7 +73,7 @@
 		"eslint-plugin-jest": "^24.4.0",
 		"eslint-plugin-jsx-a11y": "^6.4.1",
 		"eslint-plugin-react": "^7.24.0",
-		"eslint-plugin-react-hooks": "^4.2.0",
+		"eslint-plugin-react-hooks": "4.2.1-alpha-e4e8226c6-20210812",
 		"eslint-plugin-testing-library": "^4.10.1",
 		"execa": "^5.1.1",
 		"fs-extra": "^10.0.0",
