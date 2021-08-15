@@ -46,7 +46,6 @@ import {
 import { createProgressEstimator } from "./createProgressEstimator";
 import { templates } from "./templates";
 import { composePackageJson } from "./templates/utils";
-import * as deprecated from "./deprecated";
 const pkg = require("../package.json");
 
 const prog = sade("tsdx");
@@ -347,8 +346,6 @@ prog
 `);
 
 				try {
-					await deprecated.moveTypes();
-
 					if (firstTime && opts.onFirstSuccess) {
 						firstTime = false;
 						run(opts.onFirstSuccess);
@@ -402,9 +399,6 @@ prog
 				)
 				.catch((e: any) => {
 					throw e;
-				})
-				.then(async () => {
-					await deprecated.moveTypes();
 				});
 			logger(promise, "Building modules");
 			await promise;
