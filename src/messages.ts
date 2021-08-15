@@ -45,7 +45,7 @@ export async function start(projectName: string) {
 		install: cmd === "npm" ? "npm install" : "yarn install",
 		build: cmd === "npm" ? "npm run build" : "yarn build",
 		start: cmd === "npm" ? "npm run start" : "yarn start",
-		test: cmd === "npm" ? "npm test" : "yarn test",
+		test: cmd === "npm" ? "npm run test" : "yarn test",
 	};
 
 	return `

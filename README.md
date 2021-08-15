@@ -9,34 +9,34 @@ Despite all the recent hype, setting up a new TypeScript (x React) library can b
 
 - [Features](#features)
 - [Quick Start](#quick-start)
-  - [`npm start` or `yarn start`](#npm-start-or-yarn-start)
-  - [`npm run build` or `yarn build`](#npm-run-build-or-yarn-build)
-  - [`npm test` or `yarn test`](#npm-test-or-yarn-test)
-  - [`npm run lint` or `yarn lint`](#npm-run-lint-or-yarn-lint)
-  - [`prepare` script](#prepare-script)
+	- [`npm start` or `yarn start`](#npm-start-or-yarn-start)
+	- [`npm run build` or `yarn build`](#npm-run-build-or-yarn-build)
+	- [`npm test` or `yarn test`](#npm-test-or-yarn-test)
+	- [`npm run lint` or `yarn lint`](#npm-run-lint-or-yarn-lint)
+	- [`prepare` script](#prepare-script)
 - [Optimizations](#optimizations)
-  - [Development-only Expressions + Treeshaking](#development-only-expressions--treeshaking)
-    - [Rollup Treeshaking](#rollup-treeshaking)
-    - [Advanced `babel-plugin-dev-expressions`](#advanced-babel-plugin-dev-expressions)
-      - [`__DEV__`](#__dev__)
-      - [`invariant`](#invariant)
-      - [`warning`](#warning)
-  - [Using lodash](#using-lodash)
-  - [Error extraction](#error-extraction)
+	- [Development-only Expressions + Treeshaking](#development-only-expressions--treeshaking)
+		- [Rollup Treeshaking](#rollup-treeshaking)
+		- [Advanced `babel-plugin-dev-expressions`](#advanced-babel-plugin-dev-expressions)
+			- [`__DEV__`](#__dev__)
+			- [`invariant`](#invariant)
+			- [`warning`](#warning)
+	- [Using lodash](#using-lodash)
+	- [Error extraction](#error-extraction)
 - [Customization](#customization)
-  - [Rollup](#rollup)
-    - [Example: Adding Postcss](#example-adding-postcss)
-  - [Babel](#babel)
-  - [Jest](#jest)
-  - [ESLint](#eslint)
-  - [`patch-package`](#patch-package)
+	- [Rollup](#rollup)
+		- [Example: Adding Postcss](#example-adding-postcss)
+	- [Babel](#babel)
+	- [Jest](#jest)
+	- [ESLint](#eslint)
+	- [`patch-package`](#patch-package)
 - [Inspiration](#inspiration)
-  - [Comparison with Microbundle](#comparison-with-microbundle)
+	- [Comparison with Microbundle](#comparison-with-microbundle)
 - [API Reference](#api-reference)
-  - [`tsdx watch`](#tsdx-watch)
-  - [`tsdx build`](#tsdx-build)
-  - [`tsdx test`](#tsdx-test)
-  - [`tsdx lint`](#tsdx-lint)
+	- [`tsdx watch`](#tsdx-watch)
+	- [`tsdx build`](#tsdx-build)
+	- [`tsdx test`](#tsdx-test)
+	- [`tsdx lint`](#tsdx-lint)
 - [Contributing](#contributing)
 - [Author](#author)
 - [License](#license)
@@ -65,7 +65,7 @@ TSDX comes with the "battery-pack included" and is part of a complete TypeScript
 ```bash
 npx @chance/tsdx create mylib
 cd mylib
-yarn start
+npm run start
 ```
 
 That's it. You don't need to worry about setting up TypeScript or Rollup or Jest or other plumbing. Just start editing `src/index.ts` and go!
@@ -94,7 +94,7 @@ Runs your tests using Jest.
 ### `npm run lint` or `yarn lint`
 
 Runs Eslint with Prettier on .ts and .tsx files.
-If you want to customize eslint you can add an `eslint` block to your package.json, or you can run `yarn lint --write-file` and edit the generated `.eslintrc.js` file.
+If you want to customize eslint you can add an `eslint` block to your package.json, or you can run `npm run lint --write-file` and edit the generated `.eslintrc.js` file.
 
 ### `prepare` script
 
@@ -255,13 +255,13 @@ If you want to use a lodash function in your package, TSDX will help you do it t
 First, install `lodash` and `lodash-es` as _dependencies_
 
 ```bash
-yarn add lodash lodash-es
+npm i lodash lodash-es
 ```
 
 Now install `@types/lodash` to your development dependencies.
 
 ```bash
-yarn add @types/lodash --dev
+npm i -D @types/lodash
 ```
 
 Import your lodash method however you want, TSDX will optimize it like so.
