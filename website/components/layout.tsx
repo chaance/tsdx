@@ -8,8 +8,7 @@ import cn from "clsx";
 import { SkipNavContent } from "@reach/skip-nav";
 import { MDXProvider } from "@mdx-js/react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-//@ts-ignore
-import matchSorter from "match-sorter";
+import { matchSorter } from "match-sorter";
 import { Logo } from "components/logo";
 
 // import DocSearch from './docsearch'

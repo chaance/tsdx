@@ -22,10 +22,11 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Lint codebase
-        run: yarn lint:post-build
+        run: npm run lint:post-build
 
-      - name: Deduplicate dependencies
-        run: yarn deduplicate:check
+      # Can't use this yet until npm supports overrides :/
+      # - name: Deduplicate dependencies
+      #   run: npm run deduplicate:check
 
   test:
     name: Test on Node ${{ matrix.node }} and ${{ matrix.os }}
@@ -48,4 +49,4 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Test package
-        run: yarn test:post-build
+        run: npm run test:post-build
